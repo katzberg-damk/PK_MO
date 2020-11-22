@@ -1,7 +1,6 @@
-fx = @(x) acos(x) * exp(x);
-f = input('podaj twoj? funkcj? zgodn? z matlabem np. acos(x) * exp(x)');
-x0=input('podaj x0='); %0
-xN=input('podaj xN=');%1
+f = input('podaj twoja funkcje zgodna z matlabem np. acos(x) * exp(x), f(x)=', 's');
+x0=input('podaj x0=');
+xN=input('podaj xN=');
 
 nList = [10, 20, 50, 90];
 aimIntegral = my_inttria(1000, x0,xN, f);
@@ -20,7 +19,7 @@ plot(log10(nList), log10(intparaErrors),log10(nList),log10(inttriaErrors));
 title('badanie bledu funkcji calkujacych');
 xlabel('log10(n)');
 ylabel('log10(blad calkowania)');
-legend('intpara','inttria')
+legend('intpara','inttria');
 
 saveas(h(1), 'zad1.png')
 
@@ -38,12 +37,11 @@ x0=input('podaj x0=');
 df=input('podaj wzor na df/dx=','s');
 a=input('podaj a=');
 b=input('podaj b=');
-x1=input('podaj x1=');
-x2=input('podaj x2=');
 
-newton_res, newton_errors, newton_ns = my_newton(f, df, x0, eps);
-bisect_res, bisect_errors, bisect_ns = my_bisect(f, a, b, eps);
-siecz_res, siecz_errors, siecz_ns = my_siecz(f, x1, x2, esp);
+
+[newton_res, newton_errors, newton_ns] = my_newton(f, df, x0, eps);
+[bisect_res, bisect_errors, bisect_ns] = my_bisect(f, a, b, eps);
+[siecz_res, siecz_errors, siecz_ns] = my_siecz(f, a, b, eps);
 
 h(2) = figure;
 plot(newton_ns, log10(newton_errors), bisect_ns, log10(bisect_errors), siecz_ns, log10(siecz_errors));
@@ -59,5 +57,3 @@ fprintf("eps = %f ", eps);
 fprintf("x0 = %f ", x0);
 fprintf("a = %f ", a);
 fprintf("b = %f ", b);
-fprintf("x1 = %f ", x1);
-fprintf("x2 = %f ", x2);

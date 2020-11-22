@@ -11,7 +11,7 @@ del=1000000;
 while del > eps
   x=(x1*f2-x2*f1)/(f2-f1);
   f3=eval(f);
-  if f1?f3<0
+  if f1*f3<0
     del=abs(x2-x)
     x2=x;
     f2=f3;
