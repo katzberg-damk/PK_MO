@@ -52,7 +52,7 @@ legend('newton','bisect', 'siecz')
 saveas(h(2), 'zad2.png')
 
 
-disp("U?yte parametry:")
+disp("Uzyte parametry:")
 fprintf("eps = %f ", eps);
 fprintf("x0 = %f ", x0);
 fprintf("a = %f ", a);
