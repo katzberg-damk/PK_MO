@@ -1,5 +1,6 @@
 disp('Zdefinuj macierz A (4x4) gdzie przekatne sa podanymi liczbami')
 % przyk?adowa macierz A = [13, 3, -3, 0; 1, -19, 0, 6; 0, 6, -9, 2; 1, 1, 2, 6];
+
 A = input('A=');
 if det(A) != 0
   %Wyznaczanie wartosci wlasnych
@@ -59,12 +60,31 @@ end
     disp('Suma diagonalnych A nie jest równa sumie wartosci wlasnych bo')
   end
   
-  diag(round(D))
-  diag(A)
+  disp(diag(round(D)));
+  disp(diag(A));
   
   
 else 
 disp('Wyznacznik macierzy jest 0')
 end
 
+[x0, nList ] = my_jacobi(A);
+Res = input('Podaj rozwiazanie R = ');
+
+for i = 1 : length(nList)
+
+errors(i) = abs(sum(x0{1,i}-Res));
+
+end 
+disp('Wyniki x0:');
+
+disp(x0);
+disp('----------------------------------------------');
+h(1) = figure;
+plot(nList, log10(errors));
+title('Badanie metody Jacobiego');
+xlabel('Numer iteracji N');
+ylabel('log10(blad rozwiazania)');
+
+saveas(h(1), 'zad4.png')
 
