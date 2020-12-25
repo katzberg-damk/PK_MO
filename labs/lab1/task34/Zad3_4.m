@@ -13,7 +13,9 @@ if det(A) != 0
   
   %Sprawdzanie wynikow 
   disp('porowmnanie Macierzy  A do macierzy skonstruowanej z  V*D*(V^-1)');
+  disp('V*D*(V^-1)')
   disp(round(V*D*(V^-1)));
+  disp('A')
   disp(A);
   %Sprawdzanie prostopadlosci
   disp('Sprawdzanie prostopadlosci') 
@@ -37,7 +39,8 @@ end
 
   if perp == 0
     disp('wektory sa prosopadle');
-  else 
+  else
+    disp(perp)
     disp('wektory nie sa prostopadle');
   end
   
@@ -45,9 +48,9 @@ end
   
   disp('porownanie det(A) do (iloczynu wartosci wlasnych) prod(diag(D))');
   disp(det(A));
-  disp(round(prod(diag(D))));
+  disp(prod(diag(D)));
   
-  if det(A) == round(prod(diag(D)))
+  if round(det(A)) == round(prod(diag(D)))
     disp('det A jest rowne iloczynowi wartosci wlasnych')
   else
     disp('det A nie jest rowne iloczynowi wartosci wlasnych')
@@ -55,9 +58,9 @@ end
   
   %Sprawdzanie sumy wartosci wlasnych i diagnonalnych macierzy A
   if sum(diag(round(D))) == sum(diag(A))
-    disp('Suma diagonalnych A jest równa sumie wartosci wlasnych bo')
+    disp('Suma diagonalnych A jest rowna sumie wartosci wlasnych bo')
   else
-    disp('Suma diagonalnych A nie jest równa sumie wartosci wlasnych bo')
+    disp('Suma diagonalnych A nie jest rowna sumie wartosci wlasnych bo')
   end
   
   disp(diag(round(D)));
