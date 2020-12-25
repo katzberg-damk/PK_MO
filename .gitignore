@@ -3,4 +3,7 @@ zad1.png
 zad2.png
 zad4.png
 
-Cw_1/Instrukcje/*
+labs/Instrukcje/*
+
+*.iml
+.idea
